@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@if (ViewBag.Session != null)
+{
+    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+            @await Component.InvokeAsync("ShoppingCartSummery")
+        </li>
+        @await Component.InvokeAsync("AccountComponent")
+    </ul>
+}
+else
+{
+    <Div class="my-2 my-lg-0">
+        <a href="/Account/Login" class="btn btn-primary">Login</a>
+        <a href="/Account/Register" class="btn btn-primary">Sign Up</a>
+    </Div>
+}

@@ -1,0 +1,40 @@
+﻿@using l9l.Models
+@model IEnumerable<Product>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="row container">
+    @foreach (var product in Model)
+    {
+        <div class="col-sm-6 col-md-4 col-lg-3" style="min-width:260px">
+            <div class="thumbnail">
+                <img style="height:280px; width:250px" src="@product.ImageUrl" alt="" />
+                <div class="caption">
+                    <table class="table borderless"
+                           style="margin-bottom:-13px">
+                        <tr>
+                            <td>
+                                <h5>@product.Name</h5>
+                            </td>
+                            <td>
+                                <h5 style="text-align:right">
+                                    @product.Price.ToString("c")
+                                </h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:right">
+                                <button onclick="location.href='@Url.Action("Add", "Cart", new { Id = product.Id})'"
+                                        class="btn btn-primary pull-right">
+                                    Add to Card
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,23 @@
+﻿@model l9l.Models.Category
+
+@{ 
+    Layout = "_Layout";
+}
+
+@using (Html.BeginForm("Add", "Category", FormMethod.Post
+    , new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group" style="margin-top:70px">
+        @Html.LabelFor(c => c.Name)
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+
+        @Html.LabelFor(c => c.Description)
+        @Html.TextAreaFor(c => c.Description, new { @class = "form-control" })
+
+        <label>Choose Image</label>
+        <input type="file" name="ImgUpload" style="margin:5px" />
+
+        <input type="submit" class="btn btn-primary" />
+    </div>
+    
+}

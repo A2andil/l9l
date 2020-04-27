@@ -1,0 +1,72 @@
+﻿@model l9l.Data.ViewModels.RegisterViewModel
+
+@{ 
+    Layout = "_layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5" style="margin-left:28%">
+            <div class="logo mb-3">
+                <div class="col-md-12 text-center">
+                    <h1></h1>
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.FullName)
+                    @Html.TextBoxFor(c => c.FullName, new
+                             {
+                                 @class = "form-control",
+                                 @placeholder = "Enter Full Name"
+                             })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Email)
+                    @Html.TextBoxFor(c => c.Email, new
+                             {
+                                 @class = "form-control",
+                                 @placeholder = "Enter Your Email"
+                             })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Phone)
+                    @Html.TextBoxFor(c => c.Phone,
+                    new { @class = "form-control",
+                        @placeholder = "Enter Your Email"
+                    })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Membership)
+                    @Html.DropDownListFor(c => c.Membership,
+                    new SelectList(Model.Types, "Key", "Value"),
+                    new { @class = "form-control" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Password)
+                    @Html.PasswordFor(c => c.Password, new
+                             {
+                                 @class = "form-control",
+                                 @placeholder = "Enter Your Password"
+                             })
+                </div>
+
+                <div class="col-md-12 text-center mb-3">
+                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <p class="text-center"><a href="/Account/Login" id="signin">Already have an account?</a></p>
+                    </div>
+                </div>
+            }
+        </div>
+</div>
+      </div> 
