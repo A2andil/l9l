@@ -1,0 +1,19 @@
+﻿.whb {
+    border-style: solid;
+    border-width: thin;
+    width: 250px;
+    height: 360px;
+}
+
+.tbl {
+    width:250px;
+}
+
+.right {
+    text-align:right;
+    padding-right: 10px;
+}
+
+.lftd{
+    padding-left : 10px;
+}
