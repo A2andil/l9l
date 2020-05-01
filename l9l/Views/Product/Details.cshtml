@@ -1,77 +1,136 @@
-﻿@{
+﻿@model l9l.Data.ViewModels.DetailsViewModel
+
+@{
     Layout = "_layout";
 }
 
 <div class="container">
-    <div class="row" style="direction:rtl">
-        <div class="col-lg-4"
-             style="background-color:blue;align-content:center">
-            <img src="~/Content/Design/TShirts/Asphalt.png"
+    <div class="row" style="direction:rtl; margin-top:7px">
+        <!--Product and Rate-->
+        <div class="col-lg-4 text-center">
+            <img src="@Model.product.ImageUrl"
                  style="width:300px; height:320px;" />
             <div style="text-align:center; direction:ltr">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span>3.0/5.0</span>
+                @for (int i = 1; i < 6; i++)
+                {
+                    @if (i <= Model.RateValue)
+                    {
+                        <span class="fa fa-star checked"></span>
+                    }
+                    else
+                    {
+                        <span class="fa fa-star"></span>
+                    }
+                }
+                <span>
+                    @Model.RateValue .0/5.0
+                </span>
             </div>
         </div>
-        <div class="col-lg-8" style="background-color:red">
-            kkkkk
-        </div>
-        <div class="col-lg-12" style="background-color:orange">
-            <div class="col-lg-12">
-                <textarea class="col-lg-12" style="min-height:130px"></textarea>
-                <input type="submit" class="btn btn-primary" value="Post" />
-            </div>
-            <table class="table" style="margin-top:10px">
+
+        <!--Product Details-->
+        <div class="col-lg-8 text-left">
+            <table class="table col-lg-12">
                 <tr>
                     <td>
-                        <table class="table-borderless col-lg-12" style="direction:ltr">
-                            <tr>
-                                <td>
-                                    <img src="~/Content/Design/TShirts/Asphalt.png"
-                                         style="width:25px;height:25px;
-                                        border-radius: 50%;" />
-                                    Ahmad Kandil
-                                    @DateTime.Now.ToString()
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    this product is perfect kl;mlknl
-                                    ;lknms;klanklnl n klskanlkbn ;asnlkb
-                                    ;lnsalkn m sa;klknljbxlnm l;asnlkbxkm kasnxljbasxnlkjbpk
-                                </td>
-                            </tr>
-                        </table>
+                        Product Name: @Model.product.Name
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <table class="table-borderless col-lg-12" style="direction:ltr">
-                            <tr>
-                                <td>
-                                    <img src="~/Content/Design/TShirts/Asphalt.png"
-                                         style="width:25px;height:25px;
-                                        border-radius: 50%;" />
-                                    Ahmad Kandil
-                                    @DateTime.Now.ToString()
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    this product is perfect kl;mlknl
-                                    ;lknms;klanklnl n klskanlkbn ;asnlkb
-                                    ;lnsalkn m sa;klknljbxlnm l;asnlkbxkm kasnxljbasxnlkjbpk
-                                </td>
-                            </tr>
-                        </table>
+                        Short Description: @Model.product.ShortDiscription
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Price :@Model.product.Price.ToString("c")
                     </td>
                 </tr>
             </table>
         </div>
+
+        <!--Comments-->
+        <div class="col-lg-12" style="direction:ltr">
+            <!--Write Comments-->
+            <div class="col-lg-12" style="padding-top:15px; padding-bottom:15px">
+                <textarea id="cmt" class="col-lg-12 form-control text-left"
+                          style="min-height:130px;margin-bottom:7px"
+                          placeholder="Write Your Comment Here"></textarea>
+                <input type="submit" class="btn btn-primary" id="pstcom" value="Post" />
+            </div>
+
+            <!--Show Comments-->
+            <div class="container" id="cmt" style="margin-bottom:20px">
+                <ul id="lst" class="list-group">
+                    @for (int i = 0;Model.Comments != null && i <  Model.Comments.Count; i++) {
+                    <li class="list-group-item" style="margin-bottom:5px">
+                        <div class='row'>
+                            <div class='col-lg-12'>
+                                <img src="@Model.Comments[i].UrlImage"
+                                     style="width: 50px; Height: 50px;
+                                            border-radius: 20%;
+                                            padding-right: 5px;" />
+
+                                <a href='#'>@Model.Comments[i].Name</a>
+                            </div>
+                             <div class='col-lg-12'>
+                                 @Model.Comments[i].Body
+                             </div>  
+                        </div>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
     </div>
 </div>
 
+<!--JavaScript for Api-->
+<script>
+    $(document).ready(function () {
+        var ul = document.getElementById("lst");
+        $("#pstcom").click(function () {
+            var com = $("#cmt").val();
+            if (com == "") {
+                alert("Write comment before summit");
+                return;
+            }
+            $("#pstcom").prop('disabled', true);
+            var urlv = "/product/cmt?id=" +@Model.product.Id+"&com=" + com;
+                //"/api/l9l/" +@Model.product.Id + "/" + com;
+            console.log(urlv);
+            $.ajax({
+                url: urlv,
+                type:"get",
+                contentType: "application/json",
+                dataType: 'json',
+                success: function (result) {
+                    if (result == null) {
+                        alert("Please, Login First");
+                        return;
+                    }
+                    var li = document.createElement("li");
+                    li.classList.add('list-group-item');
+                    li.style.marginTop = "5px";
+                    ul.appendChild(li);
+                    li.innerHTML = "<div class='row'>"
+                        + "<div class='col-lg-12'>"
+                        + "<img src='" + result.urlimage
+                        + " style='width: 50px; Height: 50px;"
+                        + "border - radius: 20 %;padding - right: 5px;'"
+                        + "' class='CommentPic'>"
+                        + "<a href='#'>" + result.name + "</a>"
+                        + "</div>"
+                        + "<div class='col-lg-12'>" + result.body
+                        + " </div>"
+                        + "</div >"
+                    $("html, body").animate({ scrollTop: $(document).height() }, 1000, function () {
+                        $("#pstcom").prop('disabled', false);
+                        $("#cmt").val("");
+                    });
+                }
+            });
+        });
+    });
+</script>

@@ -4,3 +4,10 @@
 .checked {
     color:orange;
 }
+
+.CommentPic {
+    width: 50px;
+    Height: 50px;
+    border-radius: 20%;
+    padding-right: 5px;
+}

@@ -22,5 +22,7 @@ namespace l9l.Models
         public bool ConfirmedPassword { get; set; }
 
         public string AccountType { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

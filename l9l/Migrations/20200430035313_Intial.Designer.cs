@@ -10,8 +10,8 @@ using l9l.Models;
 namespace l9l.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200425175339_RateComments")]
-    partial class RateComments
+    [Migration("20200430035313_Intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace l9l.Migrations
 {
@@ -41,13 +42,29 @@ namespace l9l.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    CommentBody = table.Column<string>(nullable: true),
+                    date = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rates",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    AccountId = table.Column<int>(nullable: false),
                     RateValue = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -69,7 +86,9 @@ namespace l9l.Migrations
                     ImageThumbnailUrl = table.Column<string>(nullable: true),
                     InStock = table.Column<int>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
-                    RateValue = table.Column<int>(nullable: false)
+                    RateValue = table.Column<int>(nullable: false),
+                    TotalRate = table.Column<double>(nullable: false),
+                    NumberRaters = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -121,6 +140,9 @@ namespace l9l.Migrations
 
             migrationBuilder.DropTable(
                 name: "CartItems");
+
+            migrationBuilder.DropTable(
+                name: "Comments");
 
             migrationBuilder.DropTable(
                 name: "Rates");

@@ -41,6 +41,9 @@ namespace l9l.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 

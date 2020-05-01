@@ -5,12 +5,15 @@
     Layout = "_Layout";
 }
 
-<div class="row container">
+<div class="container">
     @foreach (var product in Model)
     {
-        <div class="col-sm-6 col-md-4 col-lg-3" style="min-width:260px">
+        <div class="col-sm-6 col-md-4 col-lg-4" style="min-width:260px">
             <div class="thumbnail">
-                <img style="height:280px; width:250px" src="@product.ImageUrl" alt="" />
+                <a href="/Product/Details/@product.Id">
+                    <img style="height:280px; width:250px" src="@product.ImageUrl" alt="" />
+                </a>
+
                 <div class="caption">
                     <table class="table borderless"
                            style="margin-bottom:-13px">

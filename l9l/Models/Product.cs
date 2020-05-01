@@ -33,5 +33,6 @@ namespace l9l.Models
 
         public int NumberRaters { get; set; }
 
+
     }
 }

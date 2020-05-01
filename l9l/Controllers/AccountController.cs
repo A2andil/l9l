@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using l9l.Data.ViewModels;
 using l9l.Data.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace l9l.Controllers
 {
@@ -15,6 +16,52 @@ namespace l9l.Controllers
         public AccountController(AppDbContext db)
         {
             _db = db;
+        }
+
+        [HttpPost]
+        public JsonResult pst(int id, string com)
+        {
+            //save comment here
+            List<Comment> lst = new List<Comment>
+            {
+                new Comment
+                {
+                    Id = 1,
+                    UserId = 1,
+                    ProductId = 1,
+                    CommentBody = "okjjdjduihsbub sbuhb"
+                },
+                new Comment
+                {
+                    Id = 2,
+                    UserId = 2,
+                    ProductId = 2,
+                    CommentBody = "second comment"
+                }
+            };
+            return Json(lst);
+        }
+
+        public ActionResult go()
+        {
+            List<Comment> lst = new List<Comment>
+            {
+                new Comment
+                {
+                    Id = 1,
+                    UserId = 1,
+                    ProductId = 1,
+                    CommentBody = "okjjdjduihsbub sbuhb"
+                },
+                new Comment
+                {
+                    Id = 2,
+                    UserId = 2,
+                    ProductId = 2,
+                    CommentBody = "second comment"
+                }
+            };
+            return Json(lst);
         }
 
         public IActionResult Index()
