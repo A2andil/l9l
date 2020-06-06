@@ -1,4 +1,15 @@
-﻿.edc {
+﻿body {
+    overflow-x: hidden;
+}
+
+.center_div {
+    width: 90%;
+    margin: 2% auto;
+    text-align: center;
+    border-radius: 1%;
+}
+
+.edc {
     text-align: center;
 }
 .checked {

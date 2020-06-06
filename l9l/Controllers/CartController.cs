@@ -93,6 +93,7 @@ namespace l9l.Controllers
 
         public ActionResult Edit(int Id)
         {
+            ViewBag.Session = HttpContext.Session.GetInt32(Values.Key);
             CartItem cart = _db.CartItems
                 .Where(c => c.UserId == getUserId() && c.ProductId == Id)
                 .SingleOrDefault();

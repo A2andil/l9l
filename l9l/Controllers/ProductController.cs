@@ -34,6 +34,7 @@ namespace l9l.Controllers
 
         public ViewResult Add()
         {
+            ViewBag.Session = HttpContext.Session.GetInt32(Values.Key);
             ProductViewModel pvm = new ProductViewModel
             {
                 Categories = _db.Categories.ToList()
@@ -110,7 +111,7 @@ namespace l9l.Controllers
             DetailsViewModel model = new DetailsViewModel
             {
                 product = _product,
-                RateValue = rand.Next() % 6,
+                RateValue = (rand.Next() % 3) + 3,
                 Comments = cmnts
             };
             return View(model);

@@ -5,7 +5,7 @@
 }
 
 <div class="container">
-    <div class="row" style="direction:rtl; margin-top:7px">
+    <div class="row" style="direction:rtl; margin-top: 1px;">
         <!--Product and Rate-->
         <div class="col-lg-4 text-center">
             <img src="@Model.product.ImageUrl"
@@ -124,7 +124,7 @@
                         + "</div>"
                         + "<div class='col-lg-12'>" + result.body
                         + " </div>"
-                        + "</div >"
+                        + "</div >";
                     $("html, body").animate({ scrollTop: $(document).height() }, 1000, function () {
                         $("#pstcom").prop('disabled', false);
                         $("#cmt").val("");

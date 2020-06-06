@@ -7,7 +7,7 @@
 @using (Html.BeginForm("Add", "Product", FormMethod.Post
                 , new { enctype = "multipart/form-data" }))
 {
-    <div class="form-group" style="margin-top:70px">
+    <div class="row" style="margin:20px auto; width:50%">
         @Html.LabelFor(c => c.Product.Name)
         @Html.TextBoxFor(c => c.Product.Name, new { @class = "form-control" })
 
@@ -23,9 +23,9 @@
             new { @class = "form-control"})
 
         <label>Choose Image</label>
-        <input type="file" name="UploadedImage" style="margin:5px" />
+        <input type="file" name="UploadedImage" class="form-control" style="margin:5px" />
 
-        <input type="submit" class="btn btn-primary" />
+        <input type="submit" class="btn btn-primary form-control" value="Add Product" />
     </div>
 
 }

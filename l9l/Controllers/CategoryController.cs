@@ -27,6 +27,7 @@ namespace l9l.Controllers
 
         public ViewResult Add()
         {
+            ViewBag.Session = HttpContext.Session.GetInt32(Values.Key);
             return View(new Category());
         }
 

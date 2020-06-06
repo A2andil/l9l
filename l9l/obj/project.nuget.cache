@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XcTC1GwTk9mokZgAGKSUfh2pSuzKZyIWMXuuk3H3CYHsNQJAQIHkTmeWYd/CIZpbiKINLoeB8uDaJ/yy+fYU0Q==",
+  "dgSpecHash": "BKZQYae82On0fXs9NBnvczxIOf8JbhGMpukffOAvtUYHXK9VGvX0nH7TuiXmcYaACRm7k24qonubYhMZZkRnTQ==",
   "success": true,
-  "projectFilePath": "D:\\VS 2019\\WEB CORE\\l9l\\l9l.csproj",
+  "projectFilePath": "D:\\Github\\l9l\\l9l\\l9l.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\OS\\.nuget\\packages\\microsoft.aspnetcore.mvc.api.analyzers\\2.2.6\\microsoft.aspnetcore.mvc.api.analyzers.2.2.6.nupkg.sha512",
     "C:\\Users\\OS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",

@@ -18,52 +18,6 @@ namespace l9l.Controllers
             _db = db;
         }
 
-        [HttpPost]
-        public JsonResult pst(int id, string com)
-        {
-            //save comment here
-            List<Comment> lst = new List<Comment>
-            {
-                new Comment
-                {
-                    Id = 1,
-                    UserId = 1,
-                    ProductId = 1,
-                    CommentBody = "okjjdjduihsbub sbuhb"
-                },
-                new Comment
-                {
-                    Id = 2,
-                    UserId = 2,
-                    ProductId = 2,
-                    CommentBody = "second comment"
-                }
-            };
-            return Json(lst);
-        }
-
-        public ActionResult go()
-        {
-            List<Comment> lst = new List<Comment>
-            {
-                new Comment
-                {
-                    Id = 1,
-                    UserId = 1,
-                    ProductId = 1,
-                    CommentBody = "okjjdjduihsbub sbuhb"
-                },
-                new Comment
-                {
-                    Id = 2,
-                    UserId = 2,
-                    ProductId = 2,
-                    CommentBody = "second comment"
-                }
-            };
-            return Json(lst);
-        }
-
         public IActionResult Index()
         {
             return View();

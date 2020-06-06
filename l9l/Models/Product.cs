@@ -32,7 +32,5 @@ namespace l9l.Models
         public double TotalRate { get; set; }
 
         public int NumberRaters { get; set; }
-
-
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS 2019\\WEB CORE\\l9l\\l9l.csproj": {}
+    "D:\\Github\\l9l\\l9l\\l9l.csproj": {}
   },
   "projects": {
-    "D:\\VS 2019\\WEB CORE\\l9l\\l9l.csproj": {
+    "D:\\Github\\l9l\\l9l\\l9l.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS 2019\\WEB CORE\\l9l\\l9l.csproj",
+        "projectUniqueName": "D:\\Github\\l9l\\l9l\\l9l.csproj",
         "projectName": "l9l",
-        "projectPath": "D:\\VS 2019\\WEB CORE\\l9l\\l9l.csproj",
+        "projectPath": "D:\\Github\\l9l\\l9l\\l9l.csproj",
         "packagesPath": "C:\\Users\\OS\\.nuget\\packages\\",
-        "outputPath": "D:\\VS 2019\\WEB CORE\\l9l\\obj\\",
+        "outputPath": "D:\\Github\\l9l\\l9l\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\OS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,10 +55,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.3, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.2, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
